@@ -9,17 +9,26 @@ const testData = [
   {name: 'Person 3', avatar_url: 'https://via.placeholder.com/100', company: 'Twitter'},
 ]
 
-class CardList extends Component {
-  render() {
-    return (
-      <div>
+const CardList = (props) => {
+  return (
+    <div>
         {/* <Card name={testData[0].name} avatar_url={testData[0].avatar_url} company={testData[0].company} /> */}
         {/* <Card {...testData[1]} /> */}
-        {this.props.profiles.map((profile, index) => (<Card key={index} {...profile}/>))}
+        {props.profiles.map((profile, index) => (<Card key={index} {...profile}/>))}
       </div>
-    )
-  }
+  )
 }
+// class CardList extends Component {
+//   render() {
+//     return (
+//       <div>
+//         {/* <Card name={testData[0].name} avatar_url={testData[0].avatar_url} company={testData[0].company} /> */}
+//         {/* <Card {...testData[1]} /> */}
+//         {this.props.profiles.map((profile, index) => (<Card key={index} {...profile}/>))}
+//       </div>
+//     )
+//   }
+// }
 
 class Card extends Component {
   render() {
