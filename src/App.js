@@ -41,12 +41,44 @@ class Card extends Component {
   }
 }
 
+class Form extends Component {
+  // userNameInput = React.createRef();
+  state = { userName: ''}
+  handleSubmit = (event) => {
+    event.preventDefault();
+    // console.log(this.userNameInput.current.value)
+    console.log(this.state.userName)
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        {/* <input type="text" placeholder="Github Username" ref={this.userNameInput} required /> */}
+        <input type="text" placeholder="Github Username" value={this.state.userName} onChange={event => this.setState({userName: event.target.value})} required />
+        <button>Add Card</button>
+      </form>
+
+    )
+  }
+}
 class App extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     profiles: testData
+  //   }
+  // }
+
+  state = {
+    profiles: testData
+  }
+
   render() {
     return (
       <div>
         <h1>Github Profiles</h1>
-        <CardList profiles={testData}/>
+        <Form />
+        <CardList profiles={this.state.profiles}/>
       </div>
     )
   }
