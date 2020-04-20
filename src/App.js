@@ -14,7 +14,7 @@ class CardList extends Component {
       <div>
         {/* <Card name={testData[0].name} avatar_url={testData[0].avatar_url} company={testData[0].company} /> */}
         {/* <Card {...testData[1]} /> */}
-        {this.props.profiles.map(profile => (<Card {...profile}/>))}
+        {this.props.profiles.map((profile, index) => (<Card key={index} {...profile}/>))}
       </div>
     )
   }
